@@ -643,6 +643,79 @@ int getCost(int cardNumber)
   return -1;
 }
 
+/* Start of refactored cardEffects*/
+
+
+void smithy(int currentPlayer, struct gameState *state, int handPos){
+    for (i = 0; i < 2; i++)
+    {
+        drawCard(currentPlayer, state);
+    }
+    
+    //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+    
+}
+
+void village(int currentPlayer, struct gameState *state, int handPos){
+    drawCard(currentPlayer, state);
+    
+    //+2 Actions
+    state->numActions = state->numActions + 1;
+    
+    //discard played card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+    
+}
+
+void great_hall(int currentPlayer, struct gameState *state, int handPos){
+    drawCard(currentPlayer, state);
+    
+    //+1 Actions
+    state->numActions++;
+    
+    //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+    
+}
+
+void steward(int currentPlayer, struct gameState *state, int handPos ){
+    if (choice1 == 1)
+    {
+        //+2 cards
+        drawCard(currentPlayer, state);
+        drawCard(currentPlayer, state);
+    }
+    else if (choice1 == 2)
+    {
+        //+2 coins
+        state->coins = state->coins + 2;
+    }
+    else
+    {
+        //trash 2 cards in hand
+        discardCard(choice2, currentPlayer, state, 1);
+        discardCard(choice3, currentPlayer, state, 1);
+    }
+    
+    //discard card from hand
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+}
+
+void outpost(int currentPlayer, struct gameState *state, int handPos){
+    state->outpostPlayed++;
+    
+    //discard card
+    discardCard(handPos, currentPlayer, state, 0);
+    return 0;
+}
+
+/*End of refactored cardEffects*/
+
 int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState *state, int handPos, int *bonus)
 {
   int i;
@@ -829,25 +902,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case smithy:
-      //+3 Cards
-      for (i = 0; i < 3; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+            smithy(currentPlayer, state, handPos);
       return 0;
 		
     case village:
-      //+1 Card
-      drawCard(currentPlayer, state);
-			
-      //+2 Actions
-      state->numActions = state->numActions + 2;
-			
-      //discard played card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+            village(currentPlayer, state, handPos);
       return 0;
 		
     case baron:
@@ -902,14 +961,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case great_hall:
-      //+1 Card
-      drawCard(currentPlayer, state);
-			
-      //+1 Actions
-      state->numActions++;
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+            great_hall(currentPlayer, state, handPos);
       return 0;
 		
     case minion:
@@ -964,26 +1016,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case steward:
-      if (choice1 == 1)
-	{
-	  //+2 cards
-	  drawCard(currentPlayer, state);
-	  drawCard(currentPlayer, state);
-	}
-      else if (choice1 == 2)
-	{
-	  //+2 coins
-	  state->coins = state->coins + 2;
-	}
-      else
-	{
-	  //trash 2 cards in hand
-	  discardCard(choice2, currentPlayer, state, 1);
-	  discardCard(choice3, currentPlayer, state, 1);
-	}
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
+            steward(currentPlayer, state, handPos);
       return 0;
 		
     case tribute:
@@ -1156,11 +1189,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case outpost:
-      //set outpost flag
-      state->outpostPlayed++;
-			
-      //discard card
-      discardCard(handPos, currentPlayer, state, 0);
+            outpost(currentPlayer, state, handPos);
       return 0;
 		
     case salvager:

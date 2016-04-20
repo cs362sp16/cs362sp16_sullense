@@ -1,5 +1,6 @@
 CFLAGS = -Wall -fpic -coverage -lm
 
+
 rngs.o: rngs.h rngs.c
 	gcc -c rngs.c -g  $(CFLAGS)
 

@@ -1,0 +1,1 @@
+ I refactored smithy, village, great_hall, steward, and outpost. I took the code out from the switch statement and placed them in separate functions, named appropriately. I passed in the only variables needed as parameters. For each function, this included currentPlayer, state and handPos. 
