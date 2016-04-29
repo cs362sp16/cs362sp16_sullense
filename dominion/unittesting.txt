@@ -1,0 +1,40 @@
+For the first four unit tests for the functions in dominion.c, I tested the initializeGame, getCost, discardCard, and isGameOver. 
+For the unit testing for card implementation I tested Smithy, Great Hall, Adventurer, and Treasure Map. 
+
+The only bug I found was in Smithy, and that was that it gave the player one too few cards. 
+
+When I ran code coverage, all of my tests covered at least 90 percent of each test. 
+
+
+File 'unittest1.c'
+Lines executed:92.31% of 13
+Creating 'unittest1.c.gcov'
+
+File 'unittest2.c'
+Lines executed:90.00% of 10
+Creating 'unittest2.c.gcov'
+
+File 'unittest3.c'
+Lines executed:93.75% of 16
+Creating 'unittest3.c.gcov'
+
+File 'unittest4.c'
+Lines executed:92.86% of 14
+Creating 'unittest4.c.gcov'
+
+File 'cardtest1.c'
+Lines executed:93.33% of 15
+Creating 'cardtest1.c.gcov'
+
+File 'cardtest2.c'
+Lines executed:91.30% of 23
+Creating 'cardtest2.c.gcov'
+
+File 'cardtest3.c'
+Lines executed:93.33% of 15
+Creating 'cardtest3.c.gcov'
+
+File 'cardtest4.c'
+Lines executed:95.24% of 21
+Creating 'cardtest4.c.gcov'
+

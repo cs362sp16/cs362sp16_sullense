@@ -646,7 +646,8 @@ int getCost(int cardNumber)
 /* Start of refactored cardEffects*/
 
 
-void smithy(int currentPlayer, struct gameState *state, int handPos){
+int Smithy(int currentPlayer, struct gameState *state, int handPos){
+    int i;
     for (i = 0; i < 2; i++)
     {
         drawCard(currentPlayer, state);
@@ -658,7 +659,7 @@ void smithy(int currentPlayer, struct gameState *state, int handPos){
     
 }
 
-void village(int currentPlayer, struct gameState *state, int handPos){
+int Village(int currentPlayer, struct gameState *state, int handPos){
     drawCard(currentPlayer, state);
     
     //+2 Actions
@@ -670,7 +671,7 @@ void village(int currentPlayer, struct gameState *state, int handPos){
     
 }
 
-void great_hall(int currentPlayer, struct gameState *state, int handPos){
+int Great_hall(int currentPlayer, struct gameState *state, int handPos){
     drawCard(currentPlayer, state);
     
     //+1 Actions
@@ -682,7 +683,7 @@ void great_hall(int currentPlayer, struct gameState *state, int handPos){
     
 }
 
-void steward(int currentPlayer, struct gameState *state, int handPos ){
+int Steward(int choice1, int choice2, int choice3, int currentPlayer, struct gameState *state, int handPos ){
     if (choice1 == 1)
     {
         //+2 cards
@@ -706,7 +707,7 @@ void steward(int currentPlayer, struct gameState *state, int handPos ){
     return 0;
 }
 
-void outpost(int currentPlayer, struct gameState *state, int handPos){
+int Outpost(int currentPlayer, struct gameState *state, int handPos){
     state->outpostPlayed++;
     
     //discard card
@@ -902,11 +903,11 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case smithy:
-            smithy(currentPlayer, state, handPos);
+            Smithy(currentPlayer, state, handPos);
       return 0;
 		
     case village:
-            village(currentPlayer, state, handPos);
+            Village(currentPlayer, state, handPos);
       return 0;
 		
     case baron:
@@ -961,7 +962,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case great_hall:
-            great_hall(currentPlayer, state, handPos);
+            Great_hall(currentPlayer, state, handPos);
       return 0;
 		
     case minion:
@@ -1016,7 +1017,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case steward:
-            steward(currentPlayer, state, handPos);
+            Steward(choice1, choice2, choice3, currentPlayer, state, handPos);
       return 0;
 		
     case tribute:
@@ -1189,7 +1190,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case outpost:
-            outpost(currentPlayer, state, handPos);
+            Outpost(currentPlayer, state, handPos);
       return 0;
 		
     case salvager:
@@ -1354,7 +1355,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
   //add bonus
   state->coins += bonus;
 
-  return 0;
+  return state->coins;
 }
 
 

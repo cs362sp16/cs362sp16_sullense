@@ -1,0 +1,1 @@
+I found one bug in the smithy test (cardtest1). It only adds 2 cards to the deck when it should be 3. The rest of the tests pass.  
