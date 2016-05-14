@@ -32,6 +32,18 @@ unittest1: unittest1.c dominion.o unittest2.c unittest3.c unittest4.c cardtest1.
 	card2 >> unittestresults.out
 	card3 >> unittestresults.out
 	card4 >> unittestresults.out
+
+cardtest: randomtestcard1.c dominion.o randomtestcard2.c randomtestcard3.c
+	gcc -o randomcardtest1.out randomtestcard1.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o randomcardtest2.out randomtestcard1.c -g dominion.o rngs.o $(CFLAGS)
+	gcc -o randomcardtest3.out randomtestcard1.c -g dominion.o rngs.o $(CFLAGS)
+	randomcardtest1.out 42
+	randomcardtest2.out 42
+	randomcardtest3.out 42
+
+
+
+
 all: playdom player
 
 clean:
