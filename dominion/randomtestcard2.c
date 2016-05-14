@@ -15,6 +15,7 @@ void checkTestCard2(int p, struct gameState *post ){
     
     r = cardEffect(smithy, 0,0,0, post, 0, 0);
     
+    
     if(pre.deckCount[p]>2){
         pre.handCount[p]+=3;
     }else if(pre.discardCount[p]>2){

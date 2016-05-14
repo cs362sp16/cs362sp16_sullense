@@ -16,6 +16,7 @@ void checkTestCard1(int p, struct gameState *post ){
     
     r = cardEffect(adventurer, 0,0,0, post, 0, 0);
     
+    
     if(pre.deckCount[p]>1){
         pre.handCount[p]++;
     }else if(pre.discardCount[p]>1){

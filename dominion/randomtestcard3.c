@@ -27,6 +27,7 @@ void checkTestCard3(int p, struct gameState *post ){
     }
     myAssert(memcmp(&pre,post, sizeof(struct gameState)));
     
+    
 }
 
 int myAssert(int check ){
