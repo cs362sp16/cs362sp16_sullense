@@ -1,0 +1,1 @@
+When I ran my code against someone else's it was hard to tell who had it right because it kept saying that it couldn't find testdominion in the other directory. 

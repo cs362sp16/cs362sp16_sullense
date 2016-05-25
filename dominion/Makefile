@@ -42,7 +42,9 @@ cardtest: randomtestcard1.c dominion.o randomtestcard2.c randomtestcard3.c
 	randomcardtest2.out 42
 	randomcardtest3.out 42
 
-
+testdom: dominion.o testdominion.c
+	gcc -o testdominion testdominion.c -g dominion.o rngs.o $(CFLAGS) 
+	testdominion 42
 
 
 all: playdom player
