@@ -1,0 +1,8 @@
+I found a bug in my dominion.c in the cardEffect for smithy. I found that it only has the player draw 2 cards instead of three. I found this by stepping through my card test for smithy that I wrote (cardTest1). Using GDB, I was able to step through the for loop and see that it only went through twice, therefore drawing only two cards. 
+
+Agars’ Debugging Rules that applied:
+
+Rule #2 (“Make it fail”): The way I found the bug was a failing unit test, and so I was able to use GDB to find exactly what caused the bug. 
+
+Rule #5 (“Change one thing at a time”): I only changed one thing: in the for loop i changed i<2 to i<3. And that fixed it. 
+

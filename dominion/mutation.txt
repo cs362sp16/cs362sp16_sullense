@@ -1,0 +1,3 @@
+I tested my testdominion.c on the mutants that were created, and they didn’t behave differently than the original dominion.c. Overall, I didn’t find this to be very helpful. 
+
+I also tested my unit tests and my randomcardtests and they also acted the same. 
