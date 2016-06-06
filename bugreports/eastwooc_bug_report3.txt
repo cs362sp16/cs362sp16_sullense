@@ -1,0 +1,11 @@
+Bug report 3
+
+Bug: found bug in the mine card effect using random testing. It should trash a treasure card and then gain another card that costs up to 3 more. 
+
+Severity: 
+
+High because it is important to be able to trash your low treasure cards.
+
+Priority: 
+
+High because of the same reason as severity. 

@@ -1,0 +1,11 @@
+Bug report 1
+
+Bug: Adventurer card does not play correctly. When it is played, you are supposed to have two more treasure cards in your hand. There is only one instead. 
+
+Severity: 
+
+High because the basic functionality of the card is wrong.  
+
+Priority:
+
+High because the bug will appear a lot since it is a common card to use in dominion since it gives you two more treasure cards, and if you don’t get the correct amount, then it will cause a lot of problems. 

@@ -1,0 +1,11 @@
+Bug report 2
+
+Bug: my random game tester hits an infinite loop and the game never stops. 
+
+Severity: 
+
+Medium because if there is no way to stop the game, that could be slightly annoying when playing, but when actually playing, it is easy to stop it yourself. 
+
+Priority:
+
+Medium because just not being able to stop the game isn’t a huge problem. 
